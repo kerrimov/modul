@@ -10,24 +10,24 @@
 <body>
 <form>
     <div class="form-group">
-        <label for="firstName">Name of database</label>
-        <input type="text" class="form-control" id="firstName" placeholder="">
+        <label for="DBName">Name of Table</label>
+        <input type="text" class="form-control" id="TableName" placeholder="Enter table name">
     </div>
     <div class="form-group">
-        <label for="lastName">Line</label>
-        <input type="text" class="form-control" id="lastName" placeholder="">
+        <label for="Line">Line</label>
+        <input type="text" class="form-control" id="Line" placeholder="">
     </div>
     <div class="form-group">
-        <label for="email">Column</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="">
+        <label for="Column">Column</label>
+        <input type="email" class="form-control" id="Column" aria-describedby="ColumnHelp" placeholder="">
 
     </div>
     <div class="form-group">
-        <label for="password">Enter your data</label>
-        <input type="password" class="form-control" id="password" aria-describedby="passwordLength" placeholder="">
-        <small id="passwordLength" class="form-text text-muted">Enter your data separated by commas</small>
+        <label for="YourData">Enter your data</label>
+        <input type="text" class="form-control" id="YourData" aria-describedby="DataLength" placeholder="Enter your data">
+        <small id="DataLength" class="form-text text-muted">Enter your data separated by commas</small>
     </div>
-    <a href="MyExcel" class="btn btn-primary" role="button" id="button" >Create</a>
+    <a href="CreateTable" class="btn btn-primary" role="button" id="button" action = "/CreateTable">Create</a>
 
 </form>
 

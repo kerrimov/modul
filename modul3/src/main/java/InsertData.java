@@ -1,5 +1,3 @@
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,11 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-
-@WebServlet("/createTable")
-public class CreateTable extends HttpServlet {
+@WebServlet("/InsertData")
+public class InsertData extends HttpServlet {
 
     private final String url = "jdbc:mysql://localhost:3306/myexcel";
     private final String user = "root";
@@ -24,7 +24,7 @@ public class CreateTable extends HttpServlet {
         PrintWriter writer = httpServletResponse.getWriter();
         Connection connection = null;
 
-        String query = "CREATE TABLE person (id int (20) NOT NULL AUTO_INCREMENT, name varchar(40) DEFAULT NULL, email varchar(100) DEFAULT NULL, age  int(3), PRIMARY KEY (id))";
+        String insert ="insert into myexcel.accounts (id, name, age) values (?,?,?)";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -34,11 +34,26 @@ public class CreateTable extends HttpServlet {
 
         try {
             connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(query);
+            preparedStatement = connection.prepareStatement(insert);
+
+            preparedStatement.setString(1,"Mike");
+            preparedStatement.setString(2,"Mike@mail.ru");
+            preparedStatement.setInt(3, 24);
+
             preparedStatement.executeUpdate();
-            writer.println("Create success");
+            writer.println("Create new account");
+
+
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            if (connection != null){
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
 
@@ -48,4 +63,8 @@ public class CreateTable extends HttpServlet {
     }
 
 }
+
+
+
+
 
