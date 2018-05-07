@@ -10,9 +10,10 @@
 <body>
 <form>
     <div class="form-group">
-        <label for="DBName">Name of Table</label>
+        <label for="TableName">Name of Table</label>
         <input type="text" class="form-control" id="TableName" placeholder="Enter table name">
     </div>
+    <a href="CreateTable" class="btn btn-primary" role="button" id="button" action = "/CreateTable">Create Table</a>
     <div class="form-group">
         <label for="Line">Line</label>
         <input type="text" class="form-control" id="Line" placeholder="">
@@ -27,7 +28,7 @@
         <input type="text" class="form-control" id="YourData" aria-describedby="DataLength" placeholder="Enter your data">
         <small id="DataLength" class="form-text text-muted">Enter your data separated by commas</small>
     </div>
-    <a href="CreateTable" class="btn btn-primary" role="button" id="button" action = "/CreateTable">Create</a>
+    <a href="InsertData" class="btn btn-primary" role="button" id="button" action = "/InsertData">InsertData</a>
 
 </form>
 
