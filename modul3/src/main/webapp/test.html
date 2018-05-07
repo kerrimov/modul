@@ -1,52 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <title>My creating page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Database</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 </head>
+
 <body>
+<form>
+    <div class="form-group">
+        <label for="TableName">Name of Table</label>
+        <input type="text" class="form-control" id="TableName" placeholder="Enter table name">
+    </div>
+    <div class="form-group">
+        <label for="Line">Line</label>
+        <input type="text" class="form-control" id="Line" placeholder="">
+    </div>
+    <div class="form-group">
+        <label for="Column">Column</label>
+        <input type="email" class="form-control" id="Column" aria-describedby="ColumnHelp" placeholder="">
 
-<div class="container">
-    <h2>Web app for creating tables in BD</h2>
-    <form name="creatingForm" method="post" action="/createTable">
-        <input type="submit" value="Add" name="add"/>
+    </div>
+    <div class="form-group">
+        <label for="YourData">Enter your data</label>
+        <input type="text" class="form-control" id="YourData" aria-describedby="DataLength" placeholder="Enter your data">
+        <small id="DataLength" class="form-text text-muted">Enter your data separated by commas</small>
+    </div>
+    <a href="CreateTable" class="btn btn-primary" role="button" id="button" action = "/CreateTable">Create</a>
 
-    </form>
+</form>
 
-    <h2>Web app for removing tables in BD</h2>
-    <form name="deletingForm" method="post" action="/deleteTable">
-        <input type="submit" value="Delete" name="delete"/>
-
-    </form>
-
-
-
-    <h2>Web app for adding new row in table</h2>
-    <form name="insertForm" method="post" action="/insertRowInTable">
-        <input type="submit" value="Insert" name="insert"/>
-
-    </form>
-
-
-    <h2>Web app for adding new row in table</h2>
-    <form name="deleteForm" method="post" action="/deleteRowFromTable">
-        <input type="submit" value="Delete Row" name="delete"/>
-
-    </form>
-</div>
+<script src="js/test.js"></script>
 </body>
-
-
-
-
-
-
-
-
-
 </html>
