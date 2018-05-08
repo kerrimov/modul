@@ -11,24 +11,27 @@
 <form>
     <div class="form-group">
         <label for="TableName">Name of Table</label>
-        <input type="text" class="form-control" id="TableName" placeholder="Enter table name">
+        <input type="text" class="form-control" id="TableName" placeholder="CreateTable">
     </div>
     <a href="CreateTable" class="btn btn-primary" role="button" id="button" action = "/CreateTable">Create Table</a>
+
     <div class="form-group">
-        <label for="Line">Line</label>
+        <label for="Line">InsertData</label>
         <input type="text" class="form-control" id="Line" placeholder="">
     </div>
-    <div class="form-group">
-        <label for="Column">Column</label>
-        <input type="email" class="form-control" id="Column" aria-describedby="ColumnHelp" placeholder="">
-
-    </div>
-    <div class="form-group">
-        <label for="YourData">Enter your data</label>
-        <input type="text" class="form-control" id="YourData" aria-describedby="DataLength" placeholder="Enter your data">
-        <small id="DataLength" class="form-text text-muted">Enter your data separated by commas</small>
-    </div>
     <a href="InsertData" class="btn btn-primary" role="button" id="button" action = "/InsertData">InsertData</a>
+
+    <div class="form-group">
+        <label for="Line">DeleteData</label>
+        <input type="text" class="form-control" id="deletedata" placeholder="">
+    </div>
+    <a href="DeleteData" class="btn btn-primary" role="button" id="button" action = "/DeleteData">DeleteData</a>
+
+    <div class="form-group">
+        <label for="Line">DeleteTable</label>
+        <input type="text" class="form-control" id="deletetable" placeholder="">
+    </div>
+    <a href="DeleteTable" class="btn btn-primary" role="button" id="button" action = "/DeleteTable">DeleteTable</a>
 
 </form>
 
