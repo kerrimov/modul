@@ -15,7 +15,7 @@ public class DeleteData extends HttpServlet {
 
     private final String url = "jdbc:mysql://localhost:3306/myexcel";
     private final String user = "root";
-    private final String password = "TK98kerri7";
+    private final String password = "root";
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
