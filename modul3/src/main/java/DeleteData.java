@@ -50,4 +50,3 @@ public class DeleteData extends HttpServlet {
         }
     }
 }
-
