@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
-
 @WebServlet("/createTable")
 public class CreateTable extends HttpServlet {
 
@@ -50,7 +49,6 @@ public class CreateTable extends HttpServlet {
 
         }
     }
-
    /* @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
 
@@ -66,6 +64,4 @@ public class CreateTable extends HttpServlet {
         writer.flush();
         writer.close();
     }*/
-
 }
-
