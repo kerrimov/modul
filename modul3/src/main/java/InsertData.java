@@ -55,16 +55,6 @@ public class InsertData extends HttpServlet {
                 }
             }
         }
-
-
         httpServletResponse.setContentType("application/json");
-
-
     }
-
 }
-
-
-
-
-
