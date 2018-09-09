@@ -1,4 +1,6 @@
 DeleteData.class
 InsertData.class
+SQLData.class
+JsonTable.class
 DeleteTable.class
 CreateTable.class
