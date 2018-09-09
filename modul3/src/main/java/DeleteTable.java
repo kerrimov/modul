@@ -4,49 +4,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-@WebServlet("/DeleteTable")
+@WebServlet("/droptable")
 public class DeleteTable extends HttpServlet {
-
-    private final String url = "jdbc:mysql://localhost:3306/myexcel";
-    private final String user = "root";
-    private final String password = "TK98kerri7";
-
-    @Override
-    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-
-        PreparedStatement preparedStatement = null;
-        PrintWriter writer = httpServletResponse.getWriter();
-        Connection connection = null;
-
-        String query = "Drop table myexcel.accounts";
-
+    public static void dropTable(String nametable){
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-        try {
-            connection = DriverManager.getConnection(url, user, password);
-            preparedStatement = connection.prepareStatement(query);
-            preparedStatement.executeUpdate();
-            writer.println("Dropped success");
+        String query = "DROP TABLE " + nametable;
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/excel",
+                "root", "root");
+             Statement statement = connection.createStatement();
+        ) {
+            statement.executeUpdate(query);
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String nameTable = req.getParameter("nametabledrop");
+        dropTable(nameTable);
+        resp.sendRedirect("/");
     }
 }
