@@ -14,6 +14,11 @@ public class CreateTable extends HttpServlet {
     public static final String NAME_COL = "col";
 
     public static void createTable(String nameTable, int col) {
+
+        final String url = "jdbc:mysql://localhost:3306/myexcel";
+        final String user = "root";
+        final String password = "root";
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
@@ -22,10 +27,9 @@ public class CreateTable extends HttpServlet {
         String nameCol = "";
         String typeCol = " VARCHAR (255)";
         for (int i = 0; i <= col; i++) {
-            if(i == 0){
+            if (i == 0) {
                 nameCol += "id int(11) NOT NULL AUTO_INCREMENT, ";
-            }
-            else if (i == col) {
+            } else if (i == col) {
                 nameCol += NAME_COL + i + " " + typeCol + ", PRIMARY KEY (id));";
             } else {
                 nameCol += NAME_COL + i + " " + typeCol + ",";
@@ -33,8 +37,7 @@ public class CreateTable extends HttpServlet {
 
             String query = "CREATE TABLE " + nameTable + " (" + nameCol;
             System.out.println(query);
-            try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/excel",
-                    "root", "root");
+            try (Connection connection = DriverManager.getConnection(url, user, password);
                  Statement statement = connection.createStatement();
             ) {
                 statement.executeUpdate(query);
@@ -43,10 +46,9 @@ public class CreateTable extends HttpServlet {
             }
         }
     }
+
     @Override
-    protected void doPost(HttpServletRequest req,
-                          HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nameTable = req.getParameter("nametablecreate");
         int col = Integer.parseInt(req.getParameter("col"));
         createTable(nameTable, col);
