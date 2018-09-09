@@ -12,7 +12,6 @@ import java.sql.Statement;
 @WebServlet("/deleterow")
 public class DeleteData extends HttpServlet {
     public static void deleteData(String nametable, int row) {
-
         final String url = "jdbc:mysql://localhost:3306/myexcel";
         final String user = "root";
         final String password = "root";

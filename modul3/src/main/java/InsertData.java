@@ -15,7 +15,6 @@ public class InsertData extends HttpServlet {
     static int count = 0;
 
     public static void insertData(String nametable, int rowId, String data) {
-
         final String url = "jdbc:mysql://localhost:3306/myexcel";
         final String user = "root";
         final String password = "root";
@@ -66,8 +65,6 @@ public class InsertData extends HttpServlet {
         }
         return temp;
     }
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nameTable = req.getParameter("nametabledata1");
